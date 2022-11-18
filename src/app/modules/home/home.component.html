@@ -1,0 +1,71 @@
+<div id="content" class="{{ nightMode ? 'escuro' : 'claro' }}">
+    <nav class="pw-10 {{ nightMode ? 'escuro' : 'claro' }}">
+        <div id="logo">
+            <img src="../../../assets/images/logo-{{ nightMode ? 'escuro' : 'claro' }}.svg" alt="Pokemon logo">
+        </div>
+
+        <div id="botoes">
+            <h2 class="{{ abaSelected == 0 ? 'selected' : '' }}" (click)="changeAba(0)">Favoritos</h2>
+            <h2 class="{{ abaSelected == 1 ? 'selected' : '' }}" (click)="changeAba(1)">Procurar</h2>
+            <h2 class="{{ abaSelected == 2 ? 'selected' : '' }}" (click)="changeAba(2)">Ver todos</h2>
+        </div>
+
+        <div id="mode" class="{{ nightMode ? 'escuro' : 'claro' }}" (click)="nightMode = !nightMode">
+            <p>night mode</p>
+        </div>
+    </nav>
+
+    <div class="pw-10">
+        <div id="filtros" *ngIf="abaSelected == 2">
+            <p class="{{ typeSelected == 0 ? 'selected' : ''}}" (click)="filtrar(0)">Todos</p>
+            <p class="{{ typeSelected == 10 ? 'selected' : ''}}" (click)="filtrar(10)">Fire</p>
+            <p class="{{ typeSelected == 13 ? 'selected' : ''}}" (click)="filtrar(13)">Eletric</p>
+            <p class="{{ typeSelected == 11 ? 'selected' : ''}}" (click)="filtrar(11)">Water</p>
+        </div>
+
+        <div id="procurar" *ngIf="abaSelected === 1">
+            <label for="search">Procure pelo nome ou ID</label>
+            <input (keyup)="search($event)" type="text" name="search" id="search"/>
+        </div>
+
+        <div id="cards">
+            <div id="semFavoritos" *ngIf="abaSelected === 0 && pokemons.length === 0">
+                <p>Não há pokemons favoritos. Clique no ícone de coração para favoritar algum.</p>
+            </div>
+
+            <div id="semResultado" *ngIf="abaSelected === 1 && pokemons.length === 0">
+                <p>Não foram encontrados resultados para essa pesquisa.</p>
+            </div>
+            
+
+            <div class="cardPokemon" *ngFor="let pokemon of pokemons">
+                <div class="favorito" (click)="favoritar(pokemon.id)">
+                    <img *ngIf="!pokemon.favorito" src="../../../assets/images/coracao-vazio.svg" alt="Favorito">
+                    <img *ngIf="pokemon.favorito"
+                        src="../../../assets/images/coracao-preenchido-{{ nightMode ? 'escuro' : 'claro' }}.svg"
+                        alt="Favorito">
+                </div>
+
+                <div class="img-pokemon">
+                    <img [src]="pokemon.imagens.front" alt="Imagem Pokemon">
+                </div>
+
+                <p class="mb-8">
+                    <strong>{{ pokemon.nome | titlecase }}</strong>
+                </p>
+
+                <p class="mb-8">ID: {{ pokemon.id }}</p>
+
+                <div class="tipos">
+                    <div class="tipo" *ngFor="let tipo of pokemon.tipos">
+                        <p>{{ tipo | titlecase }}</p>
+                    </div>
+                </div>
+
+                <div class="verDetalhes">
+                    <p>Ver detalhes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

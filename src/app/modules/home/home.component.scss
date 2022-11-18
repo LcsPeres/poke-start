@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pw-10 {
+    padding: 0 10%
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+#content {
+    // ATRIBUTOS FIXOS E CLAROS
+    min-height: 100vh;
+    background-color: #F5F7FA;
+
+    nav {
+        background-color: #FFCB05;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+
+        #logo {
+            position: absolute;
+            left: 10%;
+            top: 8px;
+
+            img {
+                max-width: 80px;
+            }
+        }
+
+        #botoes {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                font-size: 16px;
+                display: inline-block;
+                padding: 16px;
+                padding-bottom: 13px;
+                border-bottom: 3px rgba(0, 0, 0, 0) solid;
+                cursor: pointer;
+
+                &.selected {
+                    border-bottom: 3px black solid;
+                }
+            }
+        }
+
+        #mode {
+            position: absolute;
+            background: none;
+            right: 40px;
+            top: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+
+    #filtros {
+        padding: 32px 0;
+        position: relative;
+
+        p {
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 10px;
+            border: 1px black solid;
+            margin-right: 16px;
+            cursor: pointer;
+
+            &.selected {
+                background-color: #FFCB05;
+                border: 1px rgba(0, 0, 0, 0) solid;
+            }
+
+            &:hover {
+                position: relative;
+                top: 2px
+            }
+        }
+    }
+
+    #procurar {
+        padding: 32px 0;
+
+        label {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+
+    #cards {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-bottom: 32px;
+
+        #semFavoritos, #semResultado {
+            padding: 32px 0;
+
+            p {
+                font-weight: bold;
+            }
+        }
+
+        #semResultado {
+            padding: 16px 0;
+        }
+
+        .cardPokemon {
+            width: 15%;
+            min-width: 145px;
+            position: relative;
+            padding: 8px;
+            padding-top: 16px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: lightgray 0 0 5px;
+            margin: 16px 8px;
+
+            .favorito {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                cursor: pointer;
+
+                img {
+                    width: 30px;
+
+                    &:hover {
+                        position: relative;
+                        top: 2px
+                    }
+                }
+            }
+
+            .img-pokemon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 120px;
+                }
+            }
+
+            .tipos {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin: auto;
+                margin-bottom: 8px;
+
+                .tipo {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 4px 12px;
+                    border-radius: 10px;
+                    background-color: #FFCB05;
+                    margin-right: 4px;
+                    margin-bottom: 4px;
+                    min-width: 45%;
+
+                    p {
+                        font-size: 12px;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            .verDetalhes {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 8px 0;
+                border-radius: 10px;
+                background-color: #FFCB05;
+                cursor: pointer;
+
+                p {
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    &.escuro {
+        // ATRIBUTOS ESCUROS - NIGHTMODE
+        background-color: #1E1E1F;
+        color: white;
+
+        nav {
+            background-color: #4B4B4D;
+
+            #botoes h2 {
+                color: white;
+
+                &.selected {
+                    color: #FFCB05;
+                    border-bottom: 3px #FFCB05 solid;
+                }
+            }
+        }
+
+        #filtros {
+            #mode p {
+                background: #4B4B4D;
+            }
+
+            p {
+                border: 1px white solid;
+
+                &.selected {
+                    border: 1px rgba(0, 0, 0, 0) solid;
+                }
+            }
+        }
+
+        #cards {
+            .cardPokemon {
+                background-color: #4B4B4D;
+                box-shadow: none;
+
+                .tipos .tipo p,
+                .verDetalhes p {
+                    color: black;
+                }
+            }
+        }
+    }
+}
