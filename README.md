@@ -4,8 +4,6 @@
 Projeto criado com finalidade de auxiliar os startes da Capgemini.
 
 
-
-
 ## Rodando local
 
 Clone o projeto
@@ -23,7 +21,7 @@ Entre na pasta do projeto
 Instale as dependências
 
 ```bash
-  npm i --force
+  npm i
 ```
 
 Inicie a aplicação
@@ -34,7 +32,7 @@ Inicie a aplicação
 
 ## API e protótipos utilizados
 
-|              | Hex                                                                |
+|              | Link                                                                |
 | ----------------- | ------------------------------------------------------------------ |
 | API | https://pokeapi.co/ |
 | Protótipo | https://www.figma.com/file/Lb8Kb6uPlQEugxKQRue2r8/Pokedex?node-id=0%3A1&t=tyAvy9o9OkzNk7Dm-1 |
