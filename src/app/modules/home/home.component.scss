@@ -58,10 +58,14 @@
         #mode {
             position: absolute;
             background: none;
-            right: 40px;
-            top: 16px;
+            right: 12%;
+            top: 12px;
             cursor: pointer;
             font-weight: bold;
+
+            img {
+                width: 25px;
+            }
         }
     }
 
@@ -247,5 +251,145 @@
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
+    }
+}
+
+// tablet 768px max
+@media screen and (max-width: 768px) {
+    #content {
+        nav {
+            #logo {
+                position: relative;
+                left: 0;
+                top: 0;
+                text-align: center;
+
+                img {
+                    max-width: 250px;
+                }
+            }
+
+            #botoes {
+                display: inherit;
+                text-align: center;
+            }
+        }
+
+        #cards {
+            .cardPokemon {
+                width: 100%;
+                margin: auto;
+                margin-bottom: 16px;
+                padding: 16px;
+                padding-top: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                .favorito {
+                    top: 16px;
+                    right: 16px;
+                }
+
+                .img-pokemon {
+                    display: inline-block;
+
+                    img {
+                        width: auto;
+                        height: 150px;
+                    }
+                }
+
+                p {
+                    display: inline-block;
+                    margin-right: 8px;
+                }
+
+                .nome-id {
+                    position: absolute;
+                    top: 8px;
+                    left: 16px;
+                }
+
+                .tipo-detalhe {
+                    display: inline-block;
+                    width: 50%;
+                }
+
+                .tipos {
+                    display: inline-block;
+
+                    .tipo {
+                        display: inline;
+
+                        p {
+                            margin: auto;
+                            padding: 0 16px;
+                            margin-bottom: 8px;
+                        }
+                    }
+                }
+
+                .verDetalhes {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+// mobile L 425px max
+@media screen and (max-width: 425px) {
+    .pw-10 {
+        padding: 0 16px;
+    }
+
+    #content {
+
+        nav {
+            position: inherit;
+
+            &.pw-10 {
+                padding: 0;
+            }
+
+            #mode {
+                position: fixed;
+                top: 16px;
+                right: 16px;
+                z-index: 2;
+            }
+        }
+
+        #filtros {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                padding: 4px 12px;
+                margin: 0 4px;
+            }
+        }
+
+        #cards {
+            .cardPokemon {
+                .tipos .tipo p {
+                    padding: 0;
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
+}
+
+// mobile M 375px max
+@media screen and (max-width: 375px) {
+    #content #cards .cardPokemon {
+        padding-top: 40px;
+
+        .img-pokemon img {
+            height: 80px;
+        }
     }
 }

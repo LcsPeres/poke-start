@@ -110,3 +110,11 @@
         }
     }
 }
+
+// mobile S 320px max
+@media screen and (max-width: 320px) {
+    #statsModal {
+        width: 95vw;
+        max-width: 300px;
+    }
+}

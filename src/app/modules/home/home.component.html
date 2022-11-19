@@ -12,7 +12,7 @@
 
         <div id="mode" class="{{ appState.nightMode ? 'escuro' : '' }}"
             (click)="appState.nightMode = !appState.nightMode">
-            <p>night mode</p>
+            <img src="../../../assets/images/lightbulb{{ appState.nightMode ? '' : '-escuro' }}.svg" alt="Imagem lâmpada - night mode">
         </div>
     </nav>
 
@@ -51,22 +51,26 @@
                     <img [src]="pokemon.imagens.front" alt="Imagem Pokemon">
                 </div>
 
-                <p class="mb-8">
-                    <strong>{{ pokemon.nome | titlecase }}</strong>
-                </p>
-
-                <p class="mb-8">ID: {{ pokemon.id }}</p>
-
-                <div class="tipos">
-                    <div class="tipo" *ngFor="let tipo of pokemon.tipos">
-                        <p>{{ tipo | titlecase }}</p>
-                    </div>
+                <div class="nome-id">
+                    <p class="mb-8">
+                        <strong>{{ pokemon.nome | titlecase }}</strong>
+                    </p>
+    
+                    <p class="mb-8">ID: {{ pokemon.id }}</p>
                 </div>
 
-                <button class="verDetalhes" (click)="verDetalhes(pokemon)" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    Ver detalhes
-                </button>
+                <div class="tipo-detalhe">
+                    <div class="tipos">
+                        <div class="tipo" *ngFor="let tipo of pokemon.tipos">
+                            <p>{{ tipo | titlecase }}</p>
+                        </div>
+                    </div>
+    
+                    <button class="verDetalhes" (click)="verDetalhes(pokemon)" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Ver detalhes
+                    </button>
+                </div>
             </div>
         </div>
     </div>

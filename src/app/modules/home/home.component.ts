@@ -91,7 +91,6 @@ export class HomeComponent implements OnInit {
     this.pokemons = [];
     this.service.getAllByType(type).subscribe(
       (res: any) => {
-        console.log(res)
         if (res.pokemon) {
           let qtd = res.pokemon.length >= 10 ? 10 : res.pokemon.length;
 
