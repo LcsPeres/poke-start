@@ -176,7 +176,10 @@ export class HomeComponent implements OnInit {
       if (event.target.value) {
 
         this.pokemons = this.joinAllStates()
-          .filter((pokemon: PokemonModel) => (pokemon.id.toString() === event.target.value || pokemon.nome.includes(event.target.value)));
+          .filter((pokemon: PokemonModel) => (
+            pokemon.id.toString() === event.target.value ||
+            pokemon.nome.toLowerCase().includes(event.target.value.toString().toLowerCase())
+          ));
         return;
       }
 
