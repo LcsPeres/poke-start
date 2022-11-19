@@ -12,4 +12,8 @@ export class AppStateService {
   fire: Array<PokemonModel> = [];
   water: Array<PokemonModel> = [];
   eletric: Array<PokemonModel> = [];
+
+  detalhado: PokemonModel;
+  nightMode: boolean = false;
+  
 }

@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+#statsModal {
+    // ATRIBUTOS FIXOS E CLAROS
+    width: 350px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 10px;
+
+    #header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px lightgray solid;
+        margin-bottom: 8px;
+    }
+
+    #imagens {
+        img {
+            background-color: #F5F7FA;
+            border-radius: 10px;
+            margin-right: 8px;
+        }
+    }
+
+    #info {
+        display: flex;
+        align-items: center;
+
+        p {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    }
+
+    #tipos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: auto;
+        margin-bottom: 8px;
+
+        .tipo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            border-radius: 10px;
+            background-color: #FFCB05;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            width: 45%;
+
+            p {
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    #stats {
+        margin: 16px 0;
+
+        #titulo-stats {
+            font-size: 12px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                display: inline-block;
+                width: 10%;
+
+                &:first-of-type {
+                    width: 20%;
+                }
+            }
+
+            .progress {
+                width: 50%;
+            }
+        }
+    }
+
+    &.escuro {
+        // ATRIBUTOS ESCUROS - NIGHTMODE
+        background-color: #1E1E1F;
+        color: white;
+
+        #tipos .tipo p {
+            color: black;
+        }
+
+        #stats .stat .valor {
+            color: #FFCB05;
+        }
+    }
+}

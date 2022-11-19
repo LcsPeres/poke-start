@@ -1,0 +1,39 @@
+<div id="statsModal" *ngIf="appState.detalhado" class="{{ appState.nightMode ? 'escuro' : '' }}">
+    <div id="header">
+        <p>Detalhes</p>
+
+        <img src="../../../../assets/images/close{{ appState.nightMode ? '-escuro' : '' }}.svg" alt="Fechar" />
+    </div>
+
+    <h2 class="mb-16">
+        {{ appState.detalhado.nome | titlecase }}
+    </h2>
+
+    <div id="imagens" class="mb-16">
+        <img [src]="appState.detalhado.imagens.front" alt="Imagem {{ appState.detalhado.nome }} de frente">
+        <img [src]="appState.detalhado.imagens.back" alt="Imagem {{ appState.detalhado.nome }} de costas">
+    </div>
+
+    <div id="info" class="mb-16">
+        <p>1.23m</p>
+        <p>54kg</p>
+    </div>
+
+    <div id="tipos" class="mb-16">
+        <div class="tipo" *ngFor="let tipo of appState.detalhado.tipos">
+            <p>{{ tipo | titlecase }}</p>
+        </div>
+    </div>
+
+    <div id="stats">
+        <p id="titulo-stats">Estatísticas</p>
+
+        <div class="stat" *ngFor="let stat of appState.detalhado.stats">
+            <p>{{ stat.nome }}</p>
+            <div class="progress">
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{ 'width': stat.valor + '%'}"></div>
+            </div>
+            <p class="valor">{{ stat.valor }}</p>
+        </div>
+    </div>
+</div>

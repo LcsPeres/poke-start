@@ -1,7 +1,7 @@
-<div id="content" class="{{ nightMode ? 'escuro' : 'claro' }}">
-    <nav class="pw-10 {{ nightMode ? 'escuro' : 'claro' }}">
+<div id="content" class="{{ appState.nightMode ? 'escuro' : '' }}">
+    <nav class="pw-10 {{ appState.nightMode ? 'escuro' : '' }}">
         <div id="logo">
-            <img src="../../../assets/images/logo-{{ nightMode ? 'escuro' : 'claro' }}.svg" alt="Pokemon logo">
+            <img src="../../../assets/images/logo{{ appState.nightMode ? '-escuro' : '' }}.svg" alt="Pokemon logo">
         </div>
 
         <div id="botoes">
@@ -10,7 +10,8 @@
             <h2 class="{{ abaSelected == 2 ? 'selected' : '' }}" (click)="changeAba(2)">Ver todos</h2>
         </div>
 
-        <div id="mode" class="{{ nightMode ? 'escuro' : 'claro' }}" (click)="nightMode = !nightMode">
+        <div id="mode" class="{{ appState.nightMode ? 'escuro' : '' }}"
+            (click)="appState.nightMode = !appState.nightMode">
             <p>night mode</p>
         </div>
     </nav>
@@ -25,7 +26,7 @@
 
         <div id="procurar" *ngIf="abaSelected === 1">
             <label for="search">Procure pelo nome ou ID</label>
-            <input (keyup)="search($event)" type="text" name="search" id="search"/>
+            <input (keyup)="search($event)" type="text" name="search" id="search" />
         </div>
 
         <div id="cards">
@@ -36,13 +37,13 @@
             <div id="semResultado" *ngIf="abaSelected === 1 && pokemons.length === 0">
                 <p>Não foram encontrados resultados para essa pesquisa.</p>
             </div>
-            
+
 
             <div class="cardPokemon" *ngFor="let pokemon of pokemons">
                 <div class="favorito" (click)="favoritar(pokemon.id)">
                     <img *ngIf="!pokemon.favorito" src="../../../assets/images/coracao-vazio.svg" alt="Favorito">
                     <img *ngIf="pokemon.favorito"
-                        src="../../../assets/images/coracao-preenchido-{{ nightMode ? 'escuro' : 'claro' }}.svg"
+                        src="../../../assets/images/coracao-preenchido{{ appState.nightMode ? '-escuro' : '' }}.svg"
                         alt="Favorito">
                 </div>
 
@@ -62,10 +63,17 @@
                     </div>
                 </div>
 
-                <div class="verDetalhes">
-                    <p>Ver detalhes</p>
-                </div>
+                <button class="verDetalhes" (click)="verDetalhes(pokemon)" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Ver detalhes
+                </button>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <stats-modal></stats-modal>
     </div>
 </div>

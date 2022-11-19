@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppStateService } from 'src/app/models/app-state.service';
-import { PokemonModel } from 'src/app/models/pokemon.model';
+import { PokemonModel, StatModel } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -10,7 +10,6 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class HomeComponent implements OnInit {
 
-  nightMode: boolean = false;
   typeSelected: number = 0;
   abaSelected: number = 2;
 
@@ -59,6 +58,14 @@ export class HomeComponent implements OnInit {
           front: res.sprites.front_default,
           back: res.sprites.back_default
         };
+
+        res.stats.forEach(stat => {
+          let statModel = new StatModel();
+          statModel.nome = stat.stat.name;
+          statModel.valor = stat.base_stat.toString();
+
+          pokemon.stats.push(statModel);
+        });
 
         this.pokemons.push(pokemon);
         this.pokemons.sort((a: PokemonModel, b: PokemonModel) => a.id - b.id);
@@ -175,6 +182,10 @@ export class HomeComponent implements OnInit {
 
       this.getAllPokemons();
     }
+  }
+
+  verDetalhes(pokemon: PokemonModel) {
+    this.appState.detalhado = pokemon;
   }
 
 }

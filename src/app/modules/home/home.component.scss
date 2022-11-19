@@ -104,7 +104,8 @@
         flex-wrap: wrap;
         padding-bottom: 32px;
 
-        #semFavoritos, #semResultado {
+        #semFavoritos,
+        #semResultado {
             padding: 32px 0;
 
             p {
@@ -170,7 +171,7 @@
                     background-color: #FFCB05;
                     margin-right: 4px;
                     margin-bottom: 4px;
-                    min-width: 45%;
+                    width: 45%;
 
                     p {
                         font-size: 12px;
@@ -183,15 +184,14 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 8px 0;
+                padding: 12px 0;
                 border-radius: 10px;
                 background-color: #FFCB05;
                 cursor: pointer;
-
-                p {
-                    font-size: 12px;
-                    font-weight: bold;
-                }
+                font-size: 12px;
+                font-weight: bold;
+                width: 100%;
+                border: none;
             }
         }
     }
@@ -215,10 +215,6 @@
         }
 
         #filtros {
-            #mode p {
-                background: #4B4B4D;
-            }
-
             p {
                 border: 1px white solid;
 
@@ -234,10 +230,20 @@
                 box-shadow: none;
 
                 .tipos .tipo p,
-                .verDetalhes p {
+                .verDetalhes {
                     color: black;
                 }
             }
         }
+    }
+}
+
+.modal {
+    display: none !important;
+
+    &.show {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
 }
