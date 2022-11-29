@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
+import { ModalModule } from './modules/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { HomeModule } from './modules/home/home.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
