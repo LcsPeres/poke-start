@@ -31,7 +31,7 @@
         <div class="stat" *ngFor="let stat of appState.detalhado.stats">
             <p>{{ stat.nome }}</p>
             <div class="progress">
-                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{ 'width': stat.valor + '%'}"></div>
+                <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{ 'width': stat.valor + '%' }"></div>
             </div>
             <p class="valor">{{ stat.valor }}</p>
         </div>
